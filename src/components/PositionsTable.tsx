@@ -25,7 +25,7 @@ const PositionsTable: React.FC = () => {
         },
         "Organization",
       ]}
-      sortByIndex={2}
+      indexToSort={2}
     />
   );
 };

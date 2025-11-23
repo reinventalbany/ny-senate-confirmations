@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import AirtableService, { AirtableRecord } from "../services/airtable";
 import { sortBy } from "lodash";
-
-const sortByIndex = (collection: any[], index: number) =>
-  sortBy(collection, [(el) => el[index]]);
+import { sortByIndex } from "../utils/arrays";
 
 export const useTableData = (tableName: string) => {
   const [data, setData] = useState<AirtableRecord[]>([]);

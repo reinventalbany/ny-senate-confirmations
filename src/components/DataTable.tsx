@@ -3,6 +3,7 @@ import { html } from "gridjs";
 import AirtableService from "../services/airtable";
 import TableGrid from "./TableGrid";
 import AirtableLink from "./AirtableLink";
+import { sortByIndex } from "../utils/arrays";
 
 interface DataTableProps {
   tableName: string;
@@ -10,14 +11,14 @@ interface DataTableProps {
     string | { id?: string; name?: string; hidden?: boolean; formatter?: any }
   >;
   transformRecord: (record: any) => any[];
-  sortByIndex?: number;
+  indexToSort?: number;
 }
 
 const DataTable: React.FC<DataTableProps> = ({
   tableName,
   columns,
   transformRecord,
-  sortByIndex = 0,
+  indexToSort = 0,
 }) => {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -29,12 +30,10 @@ const DataTable: React.FC<DataTableProps> = ({
         const records = await service.getRecordsFromTable(tableName);
 
         // Transform records for Grid.js
-        const tableData = records.map(transformRecord);
+        let tableData = records.map(transformRecord);
 
         // Sort by specified index
-        tableData.sort((a, b) =>
-          String(a[sortByIndex]).localeCompare(String(b[sortByIndex]))
-        );
+        tableData = sortByIndex(tableData, indexToSort);
 
         setData(tableData);
       } catch (error) {
@@ -45,7 +44,7 @@ const DataTable: React.FC<DataTableProps> = ({
     };
 
     loadData();
-  }, [tableName, transformRecord, sortByIndex]);
+  }, [tableName, transformRecord, indexToSort]);
 
   if (loading) {
     return <div>Loading {tableName.toLowerCase()}...</div>;
