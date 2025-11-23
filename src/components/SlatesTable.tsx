@@ -6,6 +6,7 @@ import { linkGenerators } from "../utils/linkHelpers";
 import { renderToString } from "react-dom/server";
 import { ConfirmedDetail } from "./Confirmed";
 import PositionsList from "./PositionsList";
+import AirtableLink from "./AirtableLink";
 
 const SlatesTable: React.FC = () => {
   const { data, loading } = useSlatesTableData();
@@ -17,6 +18,7 @@ const SlatesTable: React.FC = () => {
   return (
     <div>
       <h2>Slates</h2>
+      <AirtableLink tableName="Slates"></AirtableLink>
       <TableGrid
         data={data}
         columns={[

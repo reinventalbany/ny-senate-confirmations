@@ -5,6 +5,7 @@ import TableGrid from "./TableGrid";
 import { linkGenerators } from "../utils/linkHelpers";
 import { ConfirmedDetail } from "./Confirmed";
 import { renderToString } from "react-dom/server";
+import AirtableLink from "./AirtableLink";
 
 const NomineesTable: React.FC = () => {
   const { data, loading } = useNomineesTableData();
@@ -16,6 +17,7 @@ const NomineesTable: React.FC = () => {
   return (
     <div>
       <h2>Nominees</h2>
+      <AirtableLink tableName="Nominees"></AirtableLink>
       <TableGrid
         data={data}
         columns={[

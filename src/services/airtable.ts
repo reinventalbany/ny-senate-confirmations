@@ -1,5 +1,5 @@
 import Airtable, { FieldSet, Records } from "airtable";
-import { AIRTABLE_CONFIG } from "../config/airtable";
+import AIRTABLE_CONFIG from "../config/airtable";
 
 export interface AirtableRecord {
   id: string;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { html } from "gridjs";
 import AirtableService from "../services/airtable";
 import TableGrid from "./TableGrid";
+import AirtableLink from "./AirtableLink";
 
 interface DataTableProps {
   tableName: string;
@@ -53,6 +54,7 @@ const DataTable: React.FC<DataTableProps> = ({
   return (
     <div>
       <h2>{tableName}</h2>
+      <AirtableLink tableName={tableName}></AirtableLink>
       <TableGrid data={data} columns={columns} />
     </div>
   );
