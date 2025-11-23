@@ -16,9 +16,9 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <Link to="/" className="app-title" onClick={closeMenu}>
+        <span className="app-title">
           <h1>NY Senate Confirmation Vote Data</h1>
-        </Link>
+        </span>
         <button
           className="hamburger"
           onClick={toggleMenu}
