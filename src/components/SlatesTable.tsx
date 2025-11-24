@@ -17,7 +17,7 @@ const SlatesTable: React.FC = () => {
 
   return (
     <div>
-      <h2>Slates</h2>
+      <h2 className="page-title">Slates</h2>
       <AirtableLink tableName="Slates"></AirtableLink>
       <TableGrid
         data={data}

@@ -16,7 +16,7 @@ const NomineesTable: React.FC = () => {
 
   return (
     <div>
-      <h2>Nominees</h2>
+      <h2 className="page-title">Nominees</h2>
       <AirtableLink tableName="Nominees"></AirtableLink>
       <TableGrid
         data={data}

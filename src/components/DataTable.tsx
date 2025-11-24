@@ -52,7 +52,7 @@ const DataTable: React.FC<DataTableProps> = ({
 
   return (
     <div>
-      <h2>{tableName}</h2>
+      <h2 className="page-title">{tableName}</h2>
       <AirtableLink tableName={tableName}></AirtableLink>
       <TableGrid data={data} columns={columns} />
     </div>

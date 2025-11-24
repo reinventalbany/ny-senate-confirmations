@@ -10,7 +10,7 @@ const AirtableLink: React.FC<AirtableLinkProps> = ({ tableName }) => {
 
   return (
     <a
-      className="button"
+      className="button raw-data"
       href={`https://airtable.com/${AIRTABLE_CONFIG.baseId}/${tableId}/?blocks=hide`}
       target="_blank"
     >
