@@ -11,6 +11,7 @@ import VotesBySenators from "./VotesBySenators";
 import VoteBar from "./VoteBar";
 import TableGrid from "./TableGrid";
 import { Confirmed } from "./Confirmed";
+import AirtableLink from "./AirtableLink";
 
 const SlateDetail: React.FC = () => {
   const { slateId } = useParams<{ slateId: string }>();
@@ -60,6 +61,8 @@ const SlateDetail: React.FC = () => {
           <Confirmed confirmed={String(slate.fields["Confirmed?"])}></Confirmed>
         </div>
       </div>
+
+      <AirtableLink tableName="Slates" recordId={slateId}></AirtableLink>
 
       <h2>Nominees</h2>
       {nomineesLoading ? (
