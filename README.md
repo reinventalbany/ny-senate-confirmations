@@ -1,31 +1,20 @@
-# Airtable React App
+# New York Senate Confirmation Votes
 
-A React TypeScript application that displays data from all tables in an Airtable base, with detail pages for each record and automatic linking between related records.
-
-## Features
-
-- 📊 Display all tables from your Airtable base
-- 📝 View all records in each table
-- 🔍 Detailed view for individual records
-- 🔗 Automatic linking between related records (Airtable linked records become clickable links)
-- ⚡ Built with React and TypeScript
-- 🎨 Clean, responsive UI
+An open data site sharing confirmation votes from the New York State Senate.
 
 ## Setup
-
-Install dependencies:
 
 ```bash
 npm install
 ```
 
-## Running the App
+## Run
 
 ```bash
 npm start
 ```
 
-The app will open at [http://localhost:3000](http://localhost:3000).
+then open http://localhost:1234.
 
 ## Project Structure
 
@@ -56,19 +45,6 @@ src/
 - React Router v6
 - Airtable API
 - Create React App
-
-## Notes
-
-- The Airtable JavaScript SDK doesn't provide a way to automatically discover table names, so you'll need to manually configure them in the service
-- Linked records are automatically detected and rendered as clickable links
-- The app uses Airtable's API rate limits, so large bases may take time to load initially
-
-## Available Scripts
-
-- `npm start` - Run development server
-- `npm build` - Build for production
-- `npm test` - Run tests
-- `npm eject` - Eject from Create React App (one-way operation)
 
 ## License
 
