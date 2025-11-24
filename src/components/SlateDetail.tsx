@@ -38,13 +38,8 @@ const SlateDetail: React.FC = () => {
       </div>
 
       <div className="nominee-info-card">
-        <h1>{slate.fields["Name"] as string}</h1>
+        <h1>{String(slate.fields["Date"])}</h1>
         <div className="nominee-details">
-          {slate.fields["Date"] && (
-            <div>
-              <strong>Date:</strong> {String(slate.fields["Date"])}
-            </div>
-          )}
           {slate.fields["Slate of Day"] && (
             <div>
               <strong>Slate of Day:</strong>{" "}
