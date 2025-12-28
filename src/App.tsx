@@ -47,6 +47,14 @@ function App() {
       <main className="app-main">
         <Outlet />
       </main>
+      <footer className="app-footer">
+        <a
+          href="https://github.com/reinventalbany/ny-senate-confirmations"
+          target="_blank"
+        >
+          This site is open source.
+        </a>
+      </footer>
     </div>
   );
 }

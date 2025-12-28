@@ -87,7 +87,8 @@ a {
   transition: all 0.3s ease;
 }
 
-.app-main {
+.app-main,
+.app-footer {
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
