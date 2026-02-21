@@ -30,7 +30,7 @@ export const useTableData = (tableName: string) => {
 
 export const useRecordById = (
   tableName: string,
-  recordId: string | undefined
+  recordId: string | undefined,
 ) => {
   const [record, setRecord] = useState<AirtableRecord | null>(null);
   const [loading, setLoading] = useState(true);
@@ -104,8 +104,6 @@ export const useNomineesTableData = () => {
         tableData = sortByIndex(tableData, 1);
 
         setData(tableData);
-      } catch (error) {
-        console.error("Error loading nominees:", error);
       } finally {
         setLoading(false);
       }
@@ -143,7 +141,7 @@ export const useSlatesTableData = () => {
               role: p.fields["Role"] as string,
               org: p.fields["Organization"] as string,
             },
-          ])
+          ]),
         );
 
         const tableData = slates.map((record) => {
@@ -180,8 +178,6 @@ export const useSlatesTableData = () => {
         tableData.sort((a, b) => String(b[1]).localeCompare(String(a[1])));
 
         setData(tableData);
-      } catch (error) {
-        console.error("Error loading slates:", error);
       } finally {
         setLoading(false);
       }
@@ -235,8 +231,6 @@ export const useSenatorVotes = (senatorId: string | undefined) => {
         voteData.sort((a, b) => String(b[1]).localeCompare(String(a[1])));
 
         setVotes(voteData);
-      } catch (error) {
-        console.error("Error loading votes:", error);
       } finally {
         setLoading(false);
       }
@@ -299,8 +293,6 @@ export const useNomineeVotes = (nominee: AirtableRecord | null) => {
         voteData = sortByIndex(voteData, 1);
 
         setVotes(voteData);
-      } catch (error) {
-        console.error("Error loading votes:", error);
       } finally {
         setLoading(false);
       }
@@ -314,7 +306,7 @@ export const useNomineeVotes = (nominee: AirtableRecord | null) => {
 
 export const useSlateVotes = (
   slateId: string | undefined,
-  slate: AirtableRecord | null
+  slate: AirtableRecord | null,
 ) => {
   const [votes, setVotes] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -356,8 +348,6 @@ export const useSlateVotes = (
         voteData = sortByIndex(voteData, 1);
 
         setVotes(voteData);
-      } catch (error) {
-        console.error("Error loading votes:", error);
       } finally {
         setLoading(false);
       }
@@ -371,7 +361,7 @@ export const useSlateVotes = (
 
 export const useSlateNominees = (
   slate: AirtableRecord | null,
-  slateId: string | undefined
+  slateId: string | undefined,
 ) => {
   const [nominees, setNominees] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -389,7 +379,7 @@ export const useSlateNominees = (
           (slate.fields["Nominees"] as string[] | undefined) || [];
         const allNominees = await service.getRecordsFromTable("Nominees");
         const slateNominees = allNominees.filter((n) =>
-          slateNomineeIds.includes(n.id)
+          slateNomineeIds.includes(n.id),
         );
 
         const allPositions = await service.getRecordsFromTable("Positions");
@@ -415,8 +405,6 @@ export const useSlateNominees = (
         nomineeData = sortByIndex(nomineeData, 1);
 
         setNominees(nomineeData);
-      } catch (error) {
-        console.error("Error loading nominees:", error);
       } finally {
         setLoading(false);
       }
@@ -430,7 +418,7 @@ export const useSlateNominees = (
 
 export const usePositionNominees = (
   position: AirtableRecord | null,
-  positionId: string | undefined
+  positionId: string | undefined,
 ) => {
   const [nominees, setNominees] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -470,8 +458,6 @@ export const usePositionNominees = (
         });
 
         setNominees(nomineeData);
-      } catch (error) {
-        console.error("Error loading nominees:", error);
       } finally {
         setLoading(false);
       }

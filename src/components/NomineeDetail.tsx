@@ -34,6 +34,7 @@ const NomineeDetail: React.FC = () => {
         }
       } catch (error) {
         console.error("Error loading position and slate:", error);
+        throw error;
       }
     };
 

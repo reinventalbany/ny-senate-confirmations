@@ -44,7 +44,7 @@ class AirtableService {
 
   private normalizeSingleSelectFields(
     fields: FieldSet,
-    tableName: string
+    tableName: string,
   ): FieldSet {
     const singleSelectFields: { [table: string]: string[] } = {
       Nominees: ["Confirmed?"],
@@ -85,7 +85,7 @@ class AirtableService {
 
   async getRecordById(
     tableName: string,
-    recordId: string
+    recordId: string,
   ): Promise<AirtableRecord | null> {
     try {
       const record = await this.base(tableName).find(recordId);
@@ -97,9 +97,9 @@ class AirtableService {
     } catch (error) {
       console.error(
         `Error fetching record ${recordId} from ${tableName}:`,
-        error
+        error,
       );
-      return null;
+      throw error;
     }
   }
 
@@ -116,7 +116,7 @@ class AirtableService {
         dataMap.set(table.name, records);
       } catch (error) {
         console.error(`Failed to fetch data for table ${table.name}:`, error);
-        dataMap.set(table.name, []);
+        throw error;
       }
     }
 
@@ -132,7 +132,7 @@ class AirtableService {
 
   async resolveLinkedRecord(
     recordId: string,
-    allData: Map<string, AirtableRecord[]>
+    allData: Map<string, AirtableRecord[]>,
   ): Promise<AirtableRecord | null> {
     // Search through all tables to find the record
     for (const records of Array.from(allData.values())) {

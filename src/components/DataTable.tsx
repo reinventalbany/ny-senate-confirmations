@@ -38,6 +38,7 @@ const DataTable: React.FC<DataTableProps> = ({
         setData(tableData);
       } catch (error) {
         console.error(`Error loading ${tableName}:`, error);
+        throw error;
       } finally {
         setLoading(false);
       }
