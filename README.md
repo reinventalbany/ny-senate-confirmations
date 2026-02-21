@@ -45,6 +45,7 @@ src/
 - React Router v6
 - Airtable API
 - Create React App
+- [Rollbar](https://rollbar.com/) for error monitoring
 
 ## License
 

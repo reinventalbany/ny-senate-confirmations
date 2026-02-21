@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createHashRouter, RouterProvider } from "react-router";
+import Rollbar from "rollbar";
+import { ErrorBoundary, Provider } from "@rollbar/react";
 import App from "./App";
 import Home from "./components/Home";
 import SenatorsTable from "./components/SenatorsTable";
@@ -31,11 +33,20 @@ const router = createHashRouter([
   },
 ]);
 
+const rollbarConfig: Rollbar.Configuration = {
+  accessToken: "4a9340029db94477abe4b10e5ca68a84",
+  environment: process.env.NODE_ENV || "development",
+};
+
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <Provider config={rollbarConfig}>
+      <ErrorBoundary>
+        <RouterProvider router={router} />
+      </ErrorBoundary>
+    </Provider>
+  </React.StrictMode>,
 );
