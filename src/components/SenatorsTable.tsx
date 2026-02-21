@@ -25,8 +25,6 @@ const SenatorsTable: React.FC = () => {
         {
           name: "Name",
           formatter: (cell: any, row: any) => {
-            throw new Error("testing");
-
             const id = row.cells[0].data;
             return html(linkGenerators.senator(id, cell));
           },
