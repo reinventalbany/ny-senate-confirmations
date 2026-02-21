@@ -37,6 +37,8 @@ const rollbarConfig: Rollbar.Configuration = {
   accessToken: "4a9340029db94477abe4b10e5ca68a84",
   // https://parceljs.org/features/node-emulation/#node_env
   environment: process.env.NODE_ENV,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
 };
 
 const root = ReactDOM.createRoot(
