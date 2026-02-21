@@ -35,7 +35,8 @@ const router = createHashRouter([
 
 const rollbarConfig: Rollbar.Configuration = {
   accessToken: "4a9340029db94477abe4b10e5ca68a84",
-  environment: process.env.NODE_ENV || "development",
+  // https://parceljs.org/features/node-emulation/#node_env
+  environment: process.env.NODE_ENV,
 };
 
 const root = ReactDOM.createRoot(
